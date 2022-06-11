@@ -31,15 +31,16 @@ export default {
         alert("Something went wront");
       }
       this.loader = false;
+      
     },
     async deleteRequest(data, index) {
       let string = JSON.stringify(data);
       let deleteData = JSON.parse(string);
-    let id = deleteData.id;
+      let id = deleteData.id;
       try {
         await axios({
           method: "delete",
-          url: "https://jsonplaceholder.typicode.com/posts/" +id,
+          url: "https://jsonplaceholder.typicode.com/posts/" + id,
         });
         this.response.splice(index, 1);
       } catch (err) {
